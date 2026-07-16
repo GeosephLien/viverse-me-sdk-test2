@@ -58,7 +58,8 @@ async function initializeGame() {
       locale: 'zh-TW',
       happyPath: {
         copy: { title: '選擇探索者', createLabel: '建立角色' },
-        cards: { savedAvatarFetchLimit: 3, savedAvatarDisplayLimit: 3 },
+        cards: { savedAvatarFetchLimit: 8, savedAvatarDisplayLimit: 8 },
+        layout: { maxVisibleRowsBeforeScroll: 4 },
         theme: { panelBackground: 'rgba(10, 13, 39, 0.97)', titleColor: '#f5f4ff', cardBackground: 'rgba(36, 26, 74, 0.86)' }
       }
     });
