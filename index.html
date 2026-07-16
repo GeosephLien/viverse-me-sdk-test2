@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b1f" />
+    <title>Neon Relic Run</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.1/examples/jsm/",
+          "@pixiv/three-vrm": "https://esm.sh/@pixiv/three-vrm@2.1.2?bundle&external=three",
+          "@pixiv/three-vrm-animation": "https://esm.sh/@pixiv/three-vrm-animation@2.1.2?bundle&external=three"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas id="game-canvas" aria-label="Neon Relic Run 遊戲畫面"></canvas>
+
+      <section class="hud" aria-label="遊戲資訊">
+        <div class="brand">
+          <span class="eyebrow">VIVERSE AVATAR QUEST</span>
+          <h1>NEON RELIC RUN</h1>
+        </div>
+        <div class="stats">
+          <div class="stat-card"><span>RELICS</span><strong id="relic-count">0 / 8</strong></div>
+          <div class="stat-card"><span>TIME</span><strong id="timer">00:00</strong></div>
+        </div>
+      </section>
+
+      <section class="mission-card" aria-live="polite">
+        <span class="mission-label">MISSION</span>
+        <p id="mission-text">選擇角色後，收集散落在星港的 8 枚能量遺物。</p>
+      </section>
+
+      <section class="start-panel" id="start-panel">
+        <div class="panel-glow"></div>
+        <span class="eyebrow">YOUR JOURNEY STARTS HERE</span>
+        <h2>選擇你的探索者</h2>
+        <p>使用 VIVERSE Avatar 選取或建立角色，接著以 WASD／方向鍵探索星港、收集能量遺物。按空白鍵跳躍。</p>
+        <div id="viverse-me-button-slot" class="avatar-button-slot"></div>
+        <p id="sdk-status" class="sdk-status">正在連線至角色選擇器…</p>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <div class="vignette"></div>
+    </main>
+
+    <script
+      id="viverse-sdk"
+      src="https://viverse-me.com/sdk.js"
+      data-ac3-auto-init="false"
+      async
+    ></script>
+    <script type="module" src="/src/game.js"></script>
+  </body>
+</html>

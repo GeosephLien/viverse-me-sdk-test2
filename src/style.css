@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  color: #f5f4ff;
+  background: #070b1f;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  --viverse-me-button-background: linear-gradient(100deg, #8b5cf6, #ec4899);
+  --viverse-me-button-color: #fff;
+  --viverse-me-button-font: 700 1rem/1.2 'Space Grotesk', sans-serif;
+  --viverse-me-button-letter-spacing: 0.08em;
+  --viverse-me-button-min-height: 52px;
+  --viverse-me-button-padding: 0 28px;
+  --viverse-me-button-border-radius: 14px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; overflow: hidden; }
+button { font: inherit; }
+
+.game-shell, #game-canvas { width: 100vw; height: 100vh; display: block; }
+#game-canvas { touch-action: none; outline: none; }
+.hud, .mission-card, .start-panel, .toast { position: fixed; z-index: 2; }
+.hud { inset: 0 0 auto; padding: 28px clamp(20px, 4vw, 58px); display: flex; justify-content: space-between; gap: 20px; pointer-events: none; }
+.eyebrow, .stat-card span, .mission-label { color: #a9b7e9; font: 500 0.66rem/1 'DM Mono', monospace; letter-spacing: .17em; }
+.brand h1 { margin: 8px 0 0; font-size: clamp(1.35rem, 3vw, 2.2rem); letter-spacing: -.055em; }
+.stats { display: flex; gap: 10px; }
+.stat-card { min-width: 100px; padding: 11px 14px; border: 1px solid rgba(210, 219, 255, .16); border-radius: 12px; background: rgba(8, 12, 35, .55); backdrop-filter: blur(12px); }
+.stat-card strong { display: block; margin-top: 6px; color: #fff; font: 500 .9rem/1 'DM Mono', monospace; }
+.mission-card { left: clamp(20px, 4vw, 58px); bottom: 32px; max-width: 365px; padding: 14px 18px; border-left: 2px solid #a855f7; background: linear-gradient(90deg, rgba(19, 16, 53, .88), rgba(19, 16, 53, .3)); backdrop-filter: blur(10px); }
+.mission-card p { margin: 7px 0 0; color: #e9e7ff; font-size: .86rem; line-height: 1.45; }
+.start-panel { width: min(480px, calc(100% - 36px)); left: 50%; top: 50%; transform: translate(-50%, -50%); padding: clamp(28px, 5vw, 46px); overflow: hidden; border: 1px solid rgba(217, 211, 255, .23); border-radius: 24px; background: rgba(10, 13, 39, .83); box-shadow: 0 24px 80px rgba(0, 0, 0, .45); backdrop-filter: blur(18px); text-align: center; transition: opacity .45s ease, transform .45s ease; }
+.start-panel.is-hidden { opacity: 0; pointer-events: none; transform: translate(-50%, -45%); }
+.panel-glow { position: absolute; width: 220px; height: 220px; top: -125px; left: 50%; transform: translateX(-50%); border-radius: 50%; background: #8b5cf6; filter: blur(80px); opacity: .3; pointer-events: none; }
+.start-panel > *:not(.panel-glow) { position: relative; }
+.start-panel h2 { margin: 13px 0; font-size: clamp(1.65rem, 5vw, 2.45rem); letter-spacing: -.05em; }
+.start-panel p { color: #c1c8e9; font-size: .93rem; line-height: 1.65; }
+.avatar-button-slot { min-height: 54px; margin: 27px auto 12px; display: flex; justify-content: center; }
+.sdk-status { min-height: 20px; margin: 0; color: #a9b7e9; font: .7rem/1.4 'DM Mono', monospace; }
+.toast { left: 50%; bottom: 115px; transform: translate(-50%, 14px); padding: 11px 18px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; background: rgba(15, 17, 46, .92); box-shadow: 0 8px 32px rgba(0,0,0,.35); color: #fff; font-size: .82rem; opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; }
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.vignette { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(circle at center, transparent 45%, rgba(2, 4, 16, .45) 100%); }
+
+@media (max-width: 600px) {
+  .hud { padding: 18px; align-items: flex-start; }
+  .stats { gap: 6px; }
+  .stat-card { min-width: 76px; padding: 9px 10px; }
+  .mission-card { left: 18px; right: 18px; bottom: 20px; max-width: none; }
+  .brand h1 { font-size: 1.25rem; }
+}
